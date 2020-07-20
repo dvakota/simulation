@@ -32,6 +32,7 @@ public class Board {
     Queue<Player> newVictims = new LinkedList<Player>();
     Queue<Player> newHunters = new LinkedList<Player>();
 
+    // XXX add a comment here to say what side means, how an integer represents it
     int side;
     Player[][] board;
     final Empty EMPTY = new Empty(this);
@@ -42,6 +43,8 @@ public class Board {
         init(board);
     }
 
+    // XXX add comments here to say what z h and h represent (side addressed above)
+    // i would assume it is zombies victims and humans but idk
     public void initialize(int z, int v, int h) {
         if (z + v + h > side * side - 1)
             throw new IllegalArgumentException("Too many players!");
@@ -72,6 +75,7 @@ public class Board {
 
     /* Locates a random element (board index), then removes it
     from the available set (aka Fished-Yates shuffle) */
+    // XXX what is edge? edge of a graph? side of a plane?
     private Tuple findAvailablaPosition(int edge, int side, int[] positions) {
         int index = RND.nextInt(edge);
         Tuple xy = new Tuple(positions[index] % side, positions[index] / side);
